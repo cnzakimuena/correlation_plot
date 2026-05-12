@@ -18,14 +18,14 @@ def generate_plot(measure1,
                   measure2,
                   x_range_array,
                   y_range_array,
-                  independent_variable_label=None,
-                  dependent_variable_label=None,
-                  specified_colors='mediumblue',
-                  super_title=None):
+                  **plot_kwargs):
     """
     Calls function to generate a correlation plot for two sets of measurements and provides 
     customized aesthetics.
     """
+
+    if 'specified_color' not in plot_kwargs:
+        plot_kwargs['specified_color'] = 'blue'
 
     sns.set(style="whitegrid", font_scale=1.6)
 
@@ -36,8 +36,8 @@ def generate_plot(measure1,
         # correlation plot
         # generate basic scatterplot
         ax.plot(measure1, measure2, 'o',
-                markerfacecolor=specified_colors,
-                markeredgecolor=specified_colors,
+                markerfacecolor=plot_kwargs['specified_color'],
+                markeredgecolor=plot_kwargs['specified_color'],
                 markersize=7)
         # obtain m (slope) and b(intercept) of linear regression line
         m, b = np.polyfit(measure1, measure2, 1)
@@ -58,10 +58,10 @@ def generate_plot(measure1,
                      y_range_array[1] + 0.1 * (y_range_array[1] - y_range_array[0])))
 
         # set x and y labels
-        if independent_variable_label is not None:
-            ax.set_xlabel(independent_variable_label)
-        if dependent_variable_label is not None:
-            ax.set_ylabel(dependent_variable_label)
+        if 'independent_variable_label' in plot_kwargs:
+            ax.set_xlabel(plot_kwargs['independent_variable_label'])
+        if 'dependent_variable_label' in plot_kwargs:
+            ax.set_ylabel(plot_kwargs['dependent_variable_label'])
 
         # alter axis line size
         # change all spines
@@ -90,8 +90,8 @@ def generate_plot(measure1,
         plt.subplots_adjust(bottom=0.3, top=0.8, left=0.25, right=0.8)
 
         # add global title
-        if super_title is not None:
-            fig.suptitle(super_title, fontsize="large", color="k")
+        if 'super_title' in plot_kwargs:
+            fig.suptitle(plot_kwargs['super_title'], fontsize="large", color="k")
 
 
 if __name__ == '__main__':
@@ -111,7 +111,7 @@ if __name__ == '__main__':
                   [50, 250],
                   independent_variable_label=r'SBP$_{\rm arm}$ $\mathregular{[mmHg]}$',
                   dependent_variable_label=r'SBP$_{\rm finger}$ $\mathregular{[mmHg]}$',
-                  specified_colors='cornflowerblue')
+                  specified_color='cornflowerblue')
 
     # save figure
     FILE_DESTINATION = r'.\figure'
