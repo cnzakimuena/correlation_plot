@@ -87,7 +87,7 @@ def generate_plot(measure1,
         # adjust subplots spacing
         # if subplots are added, can include, for e.g., 'wspace=0.4, hspace=0.4'
         # to control padding between subplots
-        plt.subplots_adjust(bottom=0.3, top=0.8, left=0.25, right=0.8)
+        plt.subplots_adjust(bottom=0.3, top=0.8, left=0.3, right=0.8)
 
         # add global title
         if 'super_title' in plot_kwargs:
