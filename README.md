@@ -1,13 +1,20 @@
 # Correlation Plot
 Script to generate a correlation plot. The plot uses systolic blood pressure measurements from the arm and finger ([Bland & Altman, 1995](https://www.thelancet.com/journals/lancet/article/PIIS0140673695917489/abstract)) for demonstration.
 
-installation:
+Environment setup:
+
+```bash
+conda create -n myenv python=3.11
+conda activate myenv
+```
+
+Dependencies installation:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-usage:
+Usage:
 
 ```bash
 python correlation_plot.py
