@@ -1,5 +1,5 @@
 # Correlation Plot
-Script to generate a correlation plot. The plot uses systolic blood pressure measurements from the arm and finger ([Bland & Altman, 1995](https://www.thelancet.com/journals/lancet/article/PIIS0140673695917489/abstract)) for demonstration.
+Script to generate a correlation plot (Gogtay & Thatte, 2017). The plot uses systolic blood pressure measurements from the arm and finger ([Bland & Altman, 1995](https://www.thelancet.com/journals/lancet/article/PIIS0140673695917489/abstract)) for demonstration.
 
 Environment setup:
 
